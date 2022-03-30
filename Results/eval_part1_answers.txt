@@ -1,0 +1,11 @@
+,track,algorithm
+0,073de94beaf75c6284f0120c9bc4cadb.wav,0
+1,3bdbcbfb4674cd68d3248560006f984b.wav,5
+2,5c9473cdc11eb41f9d8251bb7b9bf20e.wav,4
+3,7e132cfb83154688afdaba32da9ae57c.wav,0
+4,86789cdaab6b93f1c379b3fb324ad82e.wav,4
+5,ae5a059a450135de96c8149c9a765aea.wav,5
+6,b856ecba9c122f06ecdd063aedf415f8.wav,2
+7,bb1757aaeb425f27e03556aaa5f7c214.wav,4
+8,fc031752c22e1adde69f657c8d1d5c61.wav,4
+9,fffce363d46ac2e2e311ca15be0cdcde.wav,3
