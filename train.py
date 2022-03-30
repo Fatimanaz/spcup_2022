@@ -14,6 +14,7 @@ from sklearn.model_selection import KFold
 from sklearn.metrics import accuracy_score
 from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import StratifiedKFold
+from sklearn import svm
 import pickle
 
 from tqdm import tqdm
@@ -22,54 +23,43 @@ from collections import defaultdict
 import warnings
 warnings.filterwarnings("ignore")
 
-# CONCATENATING FEATURES FOR TRAINING FROM EXTRACTED_FEATURES/TRAIN_PART1 FOLDER
-# features are stored in the main folder extracted features: 
-# ExtractedFeatures
-#       train_part1
-#           chroma_cqt_features_train_part1.csv 
-#           mfcc_features_train_part1.csv
-#           create: train_features_concatenated.csv
-#       eval_part1 (later)
-#       eval_part2 (later)
+feature_names=[ 'mfcc_simple_mean_new',  'chroma_cqt_simple_mean_new']
+Main_folder = "./ExtractedFeatures/"
+prefix = "spcup_2022_training_part1"
+extracted_feature_folders = [
+    Main_folder + prefix + "/",
+    Main_folder + prefix + "_noise_added/",
+    Main_folder + prefix + "_reverb_added/",
+    Main_folder + prefix + "_compressed/"
+]
+
+mfccs = pd.read_csv(extracted_feature_folders[0] + 'mfcc_features.csv', index_col= 0)
+chroma = pd.read_csv(extracted_feature_folders[0] + 'chroma_cqt_features.csv', index_col= 0)
+labels = pd.read_csv("./data/spcup_2022_training_part1/labels.csv").algorithm
+df1 = pd.concat([mfccs, chroma], axis = 1)
+df1['class'] = labels
+
+mfccs = pd.read_csv(extracted_feature_folders[1] + 'mfcc_features.csv', index_col= 0)
+chroma = pd.read_csv(extracted_feature_folders[1] + 'chroma_cqt_features.csv', index_col= 0)
+labels = pd.read_csv("./data/spcup_2022_training_part1_noise_added/labels.csv").algorithm
+df2 = pd.concat([mfccs, chroma], axis = 1)
+df2['class'] = labels
+
+mfccs = pd.read_csv(extracted_feature_folders[2] + 'mfcc_features.csv', index_col= 0)
+chroma = pd.read_csv(extracted_feature_folders[2] + 'chroma_cqt_features.csv', index_col= 0)
+labels = pd.read_csv("./data/spcup_2022_training_part1_reverb_added/labels.csv").algorithm
+df3 = pd.concat([mfccs, chroma], axis = 1)
+df3['class'] = labels
+
+mfccs = pd.read_csv(extracted_feature_folders[3] + 'mfcc_features.csv', index_col= 0)
+chroma = pd.read_csv(extracted_feature_folders[3] + 'chroma_cqt_features.csv', index_col= 0)
+labels = pd.read_csv("./data/spcup_2022_training_part1_compressed/labels.csv").algorithm
+df4 = pd.concat([mfccs, chroma], axis = 1)
+df4['class'] = labels
+
+df = pd.concat([df1, df2, df3, df4], axis = 0)
+
+print(f"{df.shape}: Features queried")
 
 
-feature_names=[ 'mfcc_simple_mean_new',  'chroma_cqt_simple_mean_new']#  'melspectogram_mean_new_eval'     ]
-Main_folder = "./"
-
-feature_storage_folder = Main_folder+'ExtractedFeatures/train_part1/'
-if not os.path.exists(feature_storage_folder):
-  os.makedirs(feature_storage_folder)
-cnt = 1
-mfcc_df = pd.read_csv(feature_storage_folder + 'mfcc_features_train_part1.csv', index_col = 0)
-print(mfcc_df.head())
-chroma_cqt_df = pd.read_csv(feature_storage_folder + 'chroma_cqt_features_train_part1.csv', index_col = 0)
-print(chroma_cqt_df.head())
-# for fn in feature_names:
-#   print(fn)
-#   print(len(Features[fn]))
-
-#   extracted_features_df=pd.DataFrame(Features[fn],columns=['feature'])
-
-
-
-#   feature_list = extracted_features_df['feature'].tolist()
-  
-#   df = pd.DataFrame(feature_list)
- 
-#   if cnt==1:
-#     print("H1")
-#     FeatureConcatDF=df.copy();
-#   elif cnt< len(feature_names):
-#     print("H2")
-#     FeatureConcatDF=pd.concat([FeatureConcatDF, df.reindex(FeatureConcatDF.index)], axis=1).copy()
-#   else:
-#     print("H3")
-#     FeatureConcatDF=pd.concat([FeatureConcatDF, df.reindex(FeatureConcatDF.index)], axis=1).copy()
-#     feature_filepath=Path(feature_storage_folder+"concatenated_features_eval_2.csv")  
-#     feature_filepath.parent.mkdir(parents=True, exist_ok=True)  
-#     FeatureConcatDF.to_csv(feature_filepath) 
-#     print(fn , " csv writing complete")
-
-#   cnt=cnt+1
- 
 
