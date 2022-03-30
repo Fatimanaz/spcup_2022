@@ -50,7 +50,7 @@ for i in tqdm(range(len(file_list))):
     reverb_file_name = file_name_prefix + '_reverb.wav'
     reverb_labels['track'].append(reverb_file_name)
     reverb_labels['algorithm'].append(labels[i])
-    compressed_file_name = file_name_prefix + '_compressed.mp3'
+    compressed_file_name = file_name_prefix + '_compressed.wav'
     compressed_labels['track'].append(compressed_file_name)
     compressed_labels['algorithm'].append(labels[i])
 
