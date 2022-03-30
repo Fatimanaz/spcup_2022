@@ -1,0 +1,10 @@
+asgiref==3.4.1
+decorator==5.0.9
+Django==3.2.11
+funcsigs==1.0.2
+mysql-connector-python==8.0.26
+numpy==1.19.5
+pytz==2021.3
+six==1.16.0
+sqlparse==0.4.2
+typing_extensions==4.0.1
