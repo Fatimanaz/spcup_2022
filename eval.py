@@ -24,7 +24,9 @@ from collections import defaultdict
 import warnings
 warnings.filterwarnings("ignore")
 
-# Load the saved model
+# Load the saved model. 
+# :: PUT IN THE DESIRED MODEL IN THE MODEL NAME. 
+# YOU CAN FIND THE MODELS IN ./Results/ folder
 Model_Name = "SVC_C_4__kernel_linear__probability_True_"
 MODEL_SAVE_PATH = './Results/svm_on_mfcc_and_chroma_cqt_' + Model_Name + "/"
 checkpoint_path = MODEL_SAVE_PATH +"SavedModel.sav"
