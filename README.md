@@ -43,7 +43,7 @@ You can look at the detailed directory structure in directory_structure.txt
 
 
 * To train the entire model from scratch, raw audio files need to be augmented, processed, converted into handcrafted features and then stored in the ExtractedFeatures folder.
-* Put all the audio files in a folder. Rename the folder to _spcup_2022_training_part1_. Place this folder inside the data folder.
+* Keep all the audio files in a folder. Rename the folder to _spcup_2022_training_part1_. Place this folder inside the data folder.
 * Run adapted_script.mlx using matlab. All relative paths have already been set inside the script.
 * Now just run the provided python scripts, that will generate features, train the model and store it, and evaluate the results on the evaulation dataset. 
 ```
