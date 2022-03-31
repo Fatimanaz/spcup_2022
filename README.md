@@ -1,5 +1,5 @@
 # spcup_2022
->Matlab version used: 2021  
+>Matlab version used: R2021b  
 >Python version used: 3.8.10
 ```
 git clone https://github.com/Fatimanaz/spcup_2022.git 
