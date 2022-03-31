@@ -34,26 +34,27 @@ extracted_feature_folders = [
     Main_folder + prefix + "_compressed/"
 ]
 
-mfccs = pd.read_csv(extracted_feature_folders[0] + 'mfcc_features.csv', index_col= 0)
-chroma = pd.read_csv(extracted_feature_folders[0] + 'chroma_cqt_features.csv', index_col= 0)
+mfccs = pd.read_csv(extracted_feature_folders[0] + 'mfcc_features.csv', index_col= None)
+chroma = pd.read_csv(extracted_feature_folders[0] + 'chroma_cqt_features.csv', index_col= None)
 labels = pd.read_csv("./data/spcup_2022_training_part1/labels.csv").algorithm
 df1 = pd.concat([mfccs, chroma], axis = 1)
 df1['class'] = labels
+print(df1)
 
-mfccs = pd.read_csv(extracted_feature_folders[1] + 'mfcc_features.csv', index_col= 0)
-chroma = pd.read_csv(extracted_feature_folders[1] + 'chroma_cqt_features.csv', index_col= 0)
+mfccs = pd.read_csv(extracted_feature_folders[1] + 'mfcc_features.csv', index_col= None)
+chroma = pd.read_csv(extracted_feature_folders[1] + 'chroma_cqt_features.csv', index_col= None)
 labels = pd.read_csv("./data/spcup_2022_training_part1_noise_added/labels.csv").algorithm
 df2 = pd.concat([mfccs, chroma], axis = 1)
 df2['class'] = labels
 
-mfccs = pd.read_csv(extracted_feature_folders[2] + 'mfcc_features.csv', index_col= 0)
-chroma = pd.read_csv(extracted_feature_folders[2] + 'chroma_cqt_features.csv', index_col= 0)
+mfccs = pd.read_csv(extracted_feature_folders[2] + 'mfcc_features.csv', index_col= None)
+chroma = pd.read_csv(extracted_feature_folders[2] + 'chroma_cqt_features.csv', index_col= None)
 labels = pd.read_csv("./data/spcup_2022_training_part1_reverb_added/labels.csv").algorithm
 df3 = pd.concat([mfccs, chroma], axis = 1)
 df3['class'] = labels
 
-mfccs = pd.read_csv(extracted_feature_folders[3] + 'mfcc_features.csv', index_col= 0)
-chroma = pd.read_csv(extracted_feature_folders[3] + 'chroma_cqt_features.csv', index_col= 0)
+mfccs = pd.read_csv(extracted_feature_folders[3] + 'mfcc_features.csv', index_col= None)
+chroma = pd.read_csv(extracted_feature_folders[3] + 'chroma_cqt_features.csv', index_col= None)
 labels = pd.read_csv("./data/spcup_2022_training_part1_compressed/labels.csv").algorithm
 df4 = pd.concat([mfccs, chroma], axis = 1)
 df4['class'] = labels
@@ -67,7 +68,7 @@ X = np.array(df.drop(['class'],axis=1))
 print(X.shape)
 print(y_singleNode.shape)
 
-X_train, X_val, y_train, y_val = train_test_split(X, y_singleNode, test_size=0.25, random_state=42, stratify=y_singleNode)
+X_train, X_val, y_train, y_val = train_test_split(X, y_singleNode, test_size=0.20, random_state=42, stratify=y_singleNode)
 model = svm.SVC(kernel = 'linear', C = 4, probability = True).fit(X, y_singleNode)
 results = model.score(X_val, y_val)
 print(results) 
