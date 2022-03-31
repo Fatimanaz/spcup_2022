@@ -25,6 +25,7 @@ pip install -r requirements.txt
 7. **eval.py**: python script to produce labels on evaluation dataset
 
 
+
 ## **Using the trained model to evaluate results from already Extracted Features**
 We have already provided the extracted features (mfccs and croma cqt) csv files for all the files in the _ExtractedFeatures_ folder.
 ```
@@ -37,6 +38,9 @@ This produces the required csv files in the following format:
 
 ## **Training the entire model from scratch**
 
+### Structure of the data folder 
+You can look at the detailed directory structure in directory_structure.txt
+
 
 * To train the entire model from scratch, raw audio files need to be augmented, processed, converted into handcrafted features and then stored in the ExtractedFeatures folder.
 * Put all the audio files in a folder. Rename the folder to _spcup_2022_training_part1_. Place this folder inside the data folder.
@@ -48,3 +52,4 @@ python3 train.py
 python3 eval.py
 ```
  
+***

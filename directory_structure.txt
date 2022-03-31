@@ -1,0 +1,69 @@
+.
+├── ExtractedFeatures
+│   ├── spcup_2022_eval_part1
+│   │   ├── chroma_cqt_features.csv
+│   │   ├── mfcc_features.csv
+│   ├── spcup_2022_eval_part2
+│   │   ├── chroma_cqt_features.csv
+│   │   ├── mfcc_features.csv
+│   ├── spcup_2022_training_part1
+│   │   ├── chroma_cqt_features.csv
+│   │   ├── mfcc_features.csv
+│   ├── spcup_2022_training_part1_compressed
+│   │   ├── chroma_cqt_features.csv
+│   │   ├── mfcc_features.csv
+│   ├── spcup_2022_training_part1_noise_added
+│   │   ├── chroma_cqt_features.csv
+│   │   ├── mfcc_features.csv
+│   └── spcup_2022_training_part1_reverb_added
+│       ├── chroma_cqt_features.csv
+│       ├── mfcc_features.csv
+├── MATLAB_SCRIPTS
+│   ├── adapted_script.mlx
+│   ├── getSPCup2022Datastore.m
+│   ├── noise_injection.m
+│   └── reverberate.m
+├── README.md
+├── Results
+│   ├── eval_part1_answers.txt
+│   ├── eval_part2_answers.txt
+│   └── svm_on_mfcc_and_chroma_cqt_SVC_C_4__kernel_linear__probability_True_
+│       └── SavedModel.sav
+├── data
+│   ├── spcup_2022_eval_part1
+│   │   ├── 073de94beaf75c6284f0120c9bc4cadb.wav
+│   │   .
+│   │   .
+│   │   .
+│   │   └── labels.csv
+│   ├── spcup_2022_eval_part2
+│   │   ├── 076ab6ade5b2c3d58d95c7eb07fe444e.wav
+│   │   .
+│   │   .
+│   │   .
+│   │   └── labels.csv
+│   ├── spcup_2022_training_part1
+│   │   ├── 647c31aa67e0d670fcf91e26e22d68a7.wav
+│   │   .
+│   │   .
+│   │   .
+│   │   └── labels.csv
+│   ├── spcup_2022_training_part1_compressed
+│   │   .
+│   │   .
+│   │   .
+│   │   └── labels.csv
+│   ├── spcup_2022_training_part1_noise_added
+│   │   .
+│   │   .
+│   │   .
+│   │   └── labels.csv
+│   └── spcup_2022_training_part1_reverb_added
+│       .
+│       .
+│       .
+│       └── labels.csv
+├── eval.py
+├── feature_extraction.py
+├── requirements.txt
+├── train.py
