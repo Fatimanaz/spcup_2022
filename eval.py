@@ -34,9 +34,9 @@ loaded_model = pickle.load(open(checkpoint_path, 'rb'))
 
 
 # evaluating results for eval1
-df_mfcc_features = pd.read_csv('./ExtractedFeatures/spcup_2022_eval_part1/mfcc_features.csv', index_col = 0)
-df_chroma_features = pd.read_csv('./ExtractedFeatures/spcup_2022_eval_part1/chroma_cqt_features.csv', index_col = 0)
-labels = pd.read_csv('./data/spcup_2022_eval_part1/labels.csv' ,index_col=None)
+df_mfcc_features = pd.read_csv('./ExtractedFeatures/spcup_2022_eval_part1/mfcc_features.csv', index_col = None)
+df_chroma_features = pd.read_csv('./ExtractedFeatures/spcup_2022_eval_part1/chroma_cqt_features.csv', index_col = None)
+labels = pd.read_csv('./data/spcup_2022_eval_part1/labels.csv' ,index_col=0)
 df = pd.concat([df_mfcc_features, df_chroma_features], axis = 1)
 print(df.shape, ": features queried from eval part 1 dataset")
 
@@ -48,9 +48,9 @@ print("Evaluation for part 1 complete")
 
 
 # evaluating results for eval2
-df_mfcc_features = pd.read_csv('./ExtractedFeatures/spcup_2022_eval_part2/mfcc_features.csv', index_col = 0)
-df_chroma_features = pd.read_csv('./ExtractedFeatures/spcup_2022_eval_part2/chroma_cqt_features.csv', index_col = 0)
-labels = pd.read_csv('./data/spcup_2022_eval_part2/labels.csv' ,index_col=None)
+df_mfcc_features = pd.read_csv('./ExtractedFeatures/spcup_2022_eval_part2/mfcc_features.csv', index_col = None)
+df_chroma_features = pd.read_csv('./ExtractedFeatures/spcup_2022_eval_part2/chroma_cqt_features.csv', index_col = None)
+labels = pd.read_csv('./data/spcup_2022_eval_part2/labels.csv' ,index_col=0)
 df = pd.concat([df_mfcc_features, df_chroma_features], axis = 1)
 print(df.shape, ": features queried from eval part 2 dataset")
 
